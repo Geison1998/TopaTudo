@@ -1,0 +1,20 @@
+<%=  title "Homepage Topa tudo por dinheiro" %>
+
+<div class="row">
+  <div class="col-xs-4">
+    <% Post.all.each do |post| %>
+      <h2><%= post.title %></h2>
+      <%= post.content %>
+      <hr/>
+    <% end %>
+  </div>
+  <div class="col-xs-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mensagem</h3>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+</div>
