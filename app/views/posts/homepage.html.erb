@@ -1,20 +1,26 @@
-<%=  title "Homepage Topa tudo por dinheiro" %>
+<div class="container">
+  <div class="startet-template">
+    <%=  title "Topa tudo por dinheiro" %>
 
-<div class="row">
-  <div class="col-xs-4">
-    <% Post.all.each do |post| %>
-      <h2><%= post.title %></h2>
-      <%= post.content %>
-      <hr/>
-    <% end %>
-  </div>
-  <div class="col-xs-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Mensagem</h3>
-      </div>
-      <div class="panel-body">
-      </div>
-    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+        <% Post.all.each do |post| %>
+        <tr>
+          <td><%=link_to post.title, post %></td>
+            <% if can? :update, post %>
+              <td><%= link_to '', edit_post_path(post), class: 'btn btn-warning glyphicon glyphicon-pencil' %></td>
+              <td><%= link_to '', post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger glyphicon glyphicon-trash' %></td>
+            <% end %>
+          <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
