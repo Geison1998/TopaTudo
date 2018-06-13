@@ -7,13 +7,15 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
+    else
+      can :read, :all
+      can :create, :all
     end
-  else
-    can :read, :create, :all
-    can :create, Post
+
     can :manage , Post do |post|
       post.user == user
     end
+
 
 
 
