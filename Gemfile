@@ -40,6 +40,8 @@ gem 'devise'
 #sistema CanCanCan permissão
 gem 'cancancan', '~> 2.0'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

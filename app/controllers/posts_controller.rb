@@ -6,11 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
   end
 
   def homepage
-    @posts = Post.all;
+    @posts = Post.all.order(:title)
     @posts = Post.all.where(post: params[:post_id]) unless params[:post_id].blank?
   end
   # GET /posts/1
